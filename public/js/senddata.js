@@ -36,7 +36,7 @@ document.getElementById('text').addEventListener( "mousedown", ()=>{
 function getcode(){
   socket.emit("room",getroom[1]);
 }
-document.getElementById('text').addEventListener( "keypress", ()=>{
+document.getElementById('text').addEventListener( "keydown", ()=>{
   var data=document.getElementById('text').value;
 
   var messages = {room,data}
@@ -68,10 +68,11 @@ function getdata(data){
 }
 function track(i){
   if(datatrack[i-1]!=null){
-  document.getElementById('showtrack').innerHTML=datatrack[i-1];
+  document.getElementById('showtrack').value=datatrack[i-1];
+  console.log(datatrack[i-1]);
   }
   else{
-    document.getElementById('showtrack').innerHTML="not tracked";
+    document.getElementById('showtrack').value="not tracked";
   }
   
 }
