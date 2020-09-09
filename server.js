@@ -1,29 +1,28 @@
 const express = require('express');
 const app = express();
+const socket = require('socket.io');
+const path = require('path');
 
 const { port } = require('./env');
 
-const path = require('path');
-
-const http = require('http');
-const server = http.createServer(app);
-
 app.use(express.static(path.join(__dirname, 'public')));
 
-const socketio = require('socket.io');
-const io = socketio(server);
+const server = app.listen(port, () => {
+  console.log(`Listening on port ${port}`);
+  console.log(`http://localhost:${port}`);
+});
+
+const io = socket(server);
 
 io.on('connection', (socket) => {
-  console.log('connected');
+  console.log('Connected to Socket...');
+
   socket.on('room', (message) => {
     socket.join(message);
     socket.broadcast.to(message).emit('senddata', 'userjoined');
   });
+
   socket.on('code', (message) => {
     socket.broadcast.to(message.room).emit('code', message.data);
   });
-});
-
-server.listen(port, () => {
-  console.log(`Server running at -> http://localhost/${port}`);
 });
