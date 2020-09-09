@@ -4,6 +4,8 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
+    <link rel="stylesheet" href="css/reset.css" />
+
     <!-- Bootstrap CSS -->
     <link
       rel="stylesheet"
@@ -11,6 +13,8 @@
       integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
       crossorigin="anonymous"
     />
+
+    <link rel="stylesheet" href="css/coderoom.css" />
 
     <title>Code Room</title>
   </head>
@@ -50,10 +54,7 @@
             <h4 class="modal-title">Modal Header</h4>
           </div>
           <div class="modal-body">
-            <textarea
-              id="showtrack"
-              style="height: 100vh; width: 100%"
-            ></textarea>
+            <textarea id="showtrack" wrap="off"></textarea>
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-default" data-dismiss="modal">
@@ -64,7 +65,7 @@
       </div>
     </div>
 
-    <textarea id="text" style="height: 100vh; width: 100%"></textarea>
+    <textarea id="text" wrap="off"></textarea>
     <script src="/socket.io/socket.io.js"></script>
     <script src="/js/senddata.js"></script>
     <!-- Optional JavaScript -->
