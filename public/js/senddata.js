@@ -1,4 +1,9 @@
 const socket = io();
+const datatrack=[];
+for(i=1;i<11;i++){
+  document.getElementById('droplist').innerHTML+=`<a class ="dropdown-item" id=${i} onclick=track(${i}) data-toggle="modal" data-target="#myModal">data ${i}</a>`;
+}
+
 socket.emit('message',"hello");
 var get=""
 var my= window.location.href;;
@@ -19,24 +24,57 @@ document.getElementById("text").value=message;
 document.getElementById('text').addEventListener( "mousedown", ()=>{
   var data=document.getElementById('text').value;
   var messages = {room,data}
-  console.log("mouseame");
+  
   if(data!=get){
     socket.emit("code",messages);
     get=data;
-    console.log("not same");
+    getdata(data);
+    
 }
 
 });
+function getcode(){
+  socket.emit("room",getroom[1]);
+}
 document.getElementById('text').addEventListener( "keypress", ()=>{
   var data=document.getElementById('text').value;
-  console.log("mouseaddme");
+
   var messages = {room,data}
   if(data!=get){
     socket.emit("code",messages);
     get=data;
-    console.log("not same");
+    getdata(data);
+    
 }
 });
+function getdata(data){
+  
+  if(data.length==0){
+    return;
+  }
+ while(datatrack.length>11){
+ datatrack.shift();
+ }
+
+       if(datatrack.indexOf(data)==-1){
+        datatrack.push(data);
+        
+       }
+      
+   
+    
+  
+  
+}
+function track(i){
+  if(datatrack[i-1]!=null){
+  document.getElementById('showtrack').innerHTML=datatrack[i-1];
+  }
+  else{
+    document.getElementById('showtrack').innerHTML="not tracked";
+  }
+  
+}
 
 
 

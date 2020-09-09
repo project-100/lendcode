@@ -6,10 +6,53 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
+
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   </head>
   <body>
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+      <!-- Brand -->
+      <a class="navbar-brand"><button class="btn btn-primary" onclick=getcode();><span class="glyphicon glyphicon-refresh"></span> Refresh</button></a>
+    
+      <!-- Links -->
+      <ul class="navbar-nav">
+      
+    
+        <!-- Dropdown -->
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" id="navbardrop" data-toggle="dropdown"  >
+            last tracked data</a>
+          <div class="dropdown-menu" id="droplist">
+           
+          
+          
+          </div>
+        </li>
+      </ul>
+    </nav>
+
+    <div class="modal fade" id="myModal" role="dialog">
+      <div class="modal-dialog modal-lg">
+      
+        <!-- Modal content-->
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title">Modal Header</h4>
+          </div>
+          <div class="modal-body" id="showtrack">
+            <p>Some text in the modal.</p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+    
+  </div>
     <textarea id ="text" style="height:100vh;width:100%;"></textarea>
     <script src="/socket.io/socket.io.js"></script>
     <script src="/js/senddata.js"></script>
