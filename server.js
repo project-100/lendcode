@@ -1,26 +1,28 @@
 const express = require('express');
 const app = express();
-require('dotenv').config()
+const socket = require('socket.io');
 const path = require('path');
-const port = process.env.PORT || 3000;
-const http = require('http');
-const server = http.createServer(app);
+
+const { port } = require('./env');
+
 app.use(express.static(path.join(__dirname, 'public')));
 
-const socketio = require('socket.io');
-const io = socketio(server);
-io.on('connection',socket =>{
-    console.log('connected');
-socket.on("room",message=>{
+const server = app.listen(port, () => {
+  console.log(`Listening on port ${port}`);
+  console.log(`http://localhost:${port}`);
+});
+
+const io = socket(server);
+
+io.on('connection', (socket) => {
+  console.log('Connected to Socket...');
+
+  socket.on('room', (message) => {
     socket.join(message);
-    socket.broadcast.to(message).emit("senddata","userjoined");
-});
-socket.on("code",message=>{
-     socket.broadcast.to(message.room).emit("code",message.data);
-});
+    socket.broadcast.to(message).emit('senddata', 'userjoined');
+  });
 
-});
-
-server.listen(port,()=>{
-    console.log(`server running at ->http://localhost/${port}`)
+  socket.on('code', (message) => {
+    socket.broadcast.to(message.room).emit('code', message.data);
+  });
 });

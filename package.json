@@ -1,19 +1,28 @@
 {
-  "name": "codeshare--clone",
-  "version": "1.0.0",
-  "description": "- [Aravinth Raj](https://github.com/aravinthraj98)\r - [Mugilan](https://github.com/Mugilan-Codes)",
+  "name": "lendcode",
+  "version": "0.0.1",
+  "description": "A CodeShare Clone",
   "main": "server.js",
+  "scripts": {
+    "start": "node .",
+    "dev": "nodemon ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/project-100/lendcode.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/project-100/lendcode/issues"
+  },
+  "homepage": "https://github.com/project-100/lendcode#readme",
+  "devDependencies": {
+    "nodemon": "^2.0.4"
+  },
   "dependencies": {
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
-    "path": "^0.12.7",
     "socket.io": "^2.3.0"
-  },
-  "devDependencies": {},
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
-  },
-  "author": "",
-  "license": "ISC"
+  }
 }
