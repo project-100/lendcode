@@ -4,7 +4,7 @@ for (i = 1; i < 11; i++) {
   document.getElementById(
     'droplist'
   ).innerHTML += `<a class ="dropdown-item" id=${i} onclick=track(${i}) data-toggle="modal" data-target="#myModal">data ${i}</a>`;
-  document.getElementById(i).style.display="none";
+  document.getElementById(i).style.display = 'none';
 }
 
 socket.emit('message', 'hello');
@@ -31,7 +31,6 @@ document.getElementById('text').addEventListener('mousedown', () => {
   if (data != get) {
     socket.emit('code', messages);
     get = data;
-    
   }
 });
 function getcode() {
@@ -44,43 +43,36 @@ document.getElementById('text').addEventListener('keydown', () => {
   if (data != get) {
     socket.emit('code', messages);
     get = data;
-   
   }
 });
-var Trackrate=60000;
+var Trackrate = 60000;
 
-var TrackInterval=function(s){
-  
- if(s=="start")
-  {
-   var SetInterval=  setInterval(function(){
+var TrackInterval = function (s) {
+  if (s == 'start') {
+    var SetInterval = setInterval(function () {
       var data = document.getElementById('text').value;
       getdata(data);
-      console.log("yess");
-    },Trackrate);
+      console.log('yess');
+    }, Trackrate);
     console.log(Trackrate);
   }
-    if(s=="stop"){
-      clearInterval(SetInterval);
-    }
-
-
-
-
-}
-TrackInterval("start");
-
-document.getElementById('Trackrate').addEventListener('change',()=>{
-  Trackrate=document.getElementById('Trackrate').value;
-  if(Trackrate==0){
-        Trackrate=60;
-        document.getElementById('Trackrate').value=60;
+  if (s == 'stop') {
+    clearInterval(SetInterval);
   }
-  Trackrate=Trackrate*1000;
-  
-  TrackInterval("stop");
-  TrackInterval("start");
-  
+};
+TrackInterval('start');
+
+document.getElementById('Trackrate').addEventListener('change', () => {
+  Trackrate = document.getElementById('Trackrate').value;
+  if (Trackrate == 0) {
+    Trackrate = 60;
+    document.getElementById('Trackrate').value = 60;
+  }
+  Trackrate = Trackrate * 1000;
+
+  TrackInterval('stop');
+  TrackInterval('start');
+
   console.log(Trackrate);
 });
 
@@ -94,12 +86,10 @@ function getdata(data) {
 
   if (datatrack.indexOf(data) == -1) {
     datatrack.push(data);
-    var time=new Date();
-    var Tracker=document.getElementById(datatrack.length);
-    Tracker.style.display="";
-    Tracker.innerHTML="tracked at "+time.toLocaleTimeString();
-
-
+    var time = new Date();
+    var Tracker = document.getElementById(datatrack.length);
+    Tracker.style.display = '';
+    Tracker.innerHTML = 'tracked at ' + time.toLocaleTimeString();
   }
 }
 function track(i) {

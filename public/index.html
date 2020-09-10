@@ -16,6 +16,8 @@
 
     <link rel="stylesheet" href="css/coderoom.css" />
 
+    <link rel="shortcut icon" href="images/icon.png" type="image/x-icon" />
+
     <title>lend code</title>
   </head>
   <body>
@@ -41,13 +43,16 @@
           <div class="dropdown-menu" id="droplist"></div>
         </li>
       </ul>
-     
+
       <ul class="navbar-nav">
         <li class="nav-item">
-        <a class="nav-link">track data for every  <input type=number min=5 max=300 value=60 id="Trackrate" > seconds</a>
+          <a class="nav-link"
+            >track data for every
+            <input type="number" min="5" max="300" value="60" id="Trackrate" />
+            seconds</a
+          >
         </li>
-        </ul>
-      
+      </ul>
     </nav>
 
     <div class="modal fade" id="myModal" role="dialog">
@@ -74,17 +79,16 @@
 
     <textarea id="text" wrap="off"></textarea>
     <script>
-      var href=window.location.href;
-      href=href.split("?");
-      if(href.length==2){
-         //no code
-         console.log("hello");
-      }
-      else{
-      const roomid = Math.floor(Math.random() * 20000);
+      var href = window.location.href;
+      href = href.split('?');
+      if (href.length == 2) {
+        //no code
+        console.log('hello');
+      } else {
+        const roomid = Math.floor(Math.random() * 20000);
 
-      window.location.href = `?${roomid}`;
-    }
+        window.location.href = `?${roomid}`;
+      }
     </script>
     <script src="/socket.io/socket.io.js"></script>
     <script src="/js/senddata.js"></script>
