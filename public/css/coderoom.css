@@ -20,12 +20,19 @@ body {
 textarea {
   width: 100%;
   height: 100%;
-  font-size: 1.5rem;
+ font-size: 10.8px;
   outline: none;
   resize: none;
   overflow: auto;
-  background: #212421;
+ 
   color: #eee;
   border: none;
   padding-left: 1rem;
+  background: url(http://i.imgur.com/2cOaJ.png);
+  background-attachment: local;
+  background-repeat: no-repeat;
+  padding-left: 35px;
+  padding-top: 11.5px;
+  background-color: #212421;
+  border-color:rgb(66, 36, 36);
 }
