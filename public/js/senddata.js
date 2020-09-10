@@ -45,7 +45,7 @@ document.getElementById('text').addEventListener('keydown', () => {
     get = data;
   }
 });
-var Trackrate = 60000;
+var Trackrate = 10000; // 10 seconds
 
 var TrackInterval = function (s) {
   if (s == 'start') {
@@ -65,8 +65,8 @@ TrackInterval('start');
 document.getElementById('Trackrate').addEventListener('change', () => {
   Trackrate = document.getElementById('Trackrate').value;
   if (Trackrate == 0) {
-    Trackrate = 60;
-    document.getElementById('Trackrate').value = 60;
+    Trackrate = 10;
+    document.getElementById('Trackrate').value = 10;
   }
   Trackrate = Trackrate * 1000;
 

@@ -2,8 +2,8 @@ html {
   width: 100%;
   height: 100%;
 }
-#Trackrate{
-width:20%;
+#Trackrate {
+  width: 20%;
 }
 
 body {
@@ -24,4 +24,8 @@ textarea {
   outline: none;
   resize: none;
   overflow: auto;
+  background: #212421;
+  color: #eee;
+  border: none;
+  padding-left: 1rem;
 }
