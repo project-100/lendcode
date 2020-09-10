@@ -10,7 +10,8 @@ for (i = 1; i < 11; i++) {
 socket.emit('message', 'hello');
 var get = '';
 var my = window.location.href;
-var getroom = my.split('=');
+var getroom = my.split('?');
+
 var room = getroom[1];
 socket.emit('room', getroom[1]);
 socket.on('senddata', (message) => {
